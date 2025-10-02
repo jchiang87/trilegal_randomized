@@ -45,4 +45,5 @@ class RandomSkyPositions:
         ra0 = disk.ra*u.degree
         dec0 = disk.dec*u.degree
         radius = disk.radius
-        return RandomSkyPositions(ra0, dec0, radius, npts=npts, seed=seed)
+        generator = RandomSkyPositions(ra0, dec0, radius, npts=npts, seed=seed)
+        return generator.__iter__()

@@ -65,6 +65,8 @@ class TrilegalRandomizedCollection(ObjectCollection):
     def load_collection(region, sky_catalog, mjd=None, **kwds):
         object_type = TrilegalRandomizedCollection._object_type
         config = dict(sky_catalog.raw_config["object_types"][object_type])
-        object_list = sky_catalog.get_object_type_by_region(region, "star")
-        return TrilegalRandomizedCollection(object_list, config['random_seed'],
+        object_list = sky_catalog.get_object_type_by_region(region, "trilegal")
+        return TrilegalRandomizedCollection(region,
+                                            config['random_seed'],
+                                            object_list,
                                             sky_catalog)
